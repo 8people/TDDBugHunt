@@ -1,0 +1,31 @@
+<h1>Task Lists</h1>
+<p>Your helpful task list app.</p>
+<hr>
+
+<% if @task_lists.any? %>
+  <ul>
+    <% @task_lists.each do |task_list| %>
+      <li>
+        <p>
+          <%= task_list.name %>
+        </p>
+        <ul class="no-bullets">
+          <% task_list.tasks.each do |task| %>
+            <li>
+              <%= link_to task_list_task_path(task_list_id: task_list.id, id: task.id), data: { turbo_method: :patch } do %>
+                <%= task.completed? ? '✅' : '◻️' %> <%= task.description %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <%= link_to 'Add Task', new_task_list_task_path(task_list_id: task_list.id) %> |
+        <%= link_to 'Delete List', task_list_path(task_list), data: { turbo_method: :destroy, turbo_confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No task lists found.</p>
+<% end %>
+
+<hr>
+<p><%= link_to 'Create New Task List', new_task_list_path %></p>

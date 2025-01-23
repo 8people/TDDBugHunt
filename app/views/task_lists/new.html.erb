@@ -1,0 +1,14 @@
+<h1>Create a new task list</h1>
+
+<%= form_for @task_list do |f| %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+<hr>
+
+<%= link_to 'Back', task_lists_path %>
