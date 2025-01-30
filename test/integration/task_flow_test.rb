@@ -28,8 +28,10 @@ class TaskFlowTest < ActionDispatch::IntegrationTest
 
     assert_select "h1", "Task Lists"
 
-    post "/tasks", params: { task: { title: "" } }
+    result = post "/task_lists/1/tasks", params: { task: { description: "" } }
 
+    follow_redirect! if response.redirect?
+    
     assert_select "div#error_explanation"
   end
 end

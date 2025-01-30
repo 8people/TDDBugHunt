@@ -15,6 +15,7 @@ class TaskListsController < ApplicationController
 
   def destroy
     task_list = TaskList.find(params[:id])
+    task_list.tasks.destroy_all
 
     task_list.destroy
 
@@ -24,6 +25,6 @@ class TaskListsController < ApplicationController
   private
 
   def task_list_params
-    params.require(:task_list).permit(:title)
+    params.require(:task_list).permit(:name)
   end
 end

@@ -6,9 +6,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    result = @task_list.tasks.create(permitted_params)
+    @task = @task_list.tasks.new(permitted_params)
 
-    redirect_to task_lists_path, notice: 'Task created'
+    if @task.save
+      redirect_to task_lists_path, notice: 'Task created'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update

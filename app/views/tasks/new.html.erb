@@ -1,6 +1,8 @@
 <h1>Add a new task to "<%= @task_list.name %>"</h1>
 
 <%= form_with model: [@task_list, @task] do |form| %>
+  <%= render 'layouts/errors', all_errors: @task.errors.full_messages + @task_list.errors.full_messages %>
+
   <div class="field">
     <%= form.label :description %><br>
     <%= form.text_field :description %>

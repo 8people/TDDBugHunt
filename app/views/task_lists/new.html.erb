@@ -1,6 +1,6 @@
 <h1>Create a new task list</h1>
 
-<%= form_for @task_list do |f| %>
+<%= form_with model: @task_list do |f| %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
