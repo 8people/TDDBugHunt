@@ -40,12 +40,20 @@ Please do not spend more than an hour on this exercise.
 ## Exercise Notes
 
 Fixed Delete List button to delete the Task List and associated Tasks
+
 Fixed Notices not displaying within the app
+
 Fixed Task List Names not showing on home page and parameters using title instead of name
+
 Added partial layout for displaying errors
+
 Added error catching around creating new Tasks
+
 Ensured form for new Task Lists conforms to the model
+
 Ensured creation of new Tasks required a valid description
+
 Fixed and Updated test around Error catching when creating new Tasks
+
 
 The styling and CSS has not been updated and ideally I would have wrapped further error handling around the controllers but it took me longer than I care to admit that the Task controller was referencing Task List in the create method and as this was a bug hunt then finding and solving as many bugs as possible seemed a higher priority.
